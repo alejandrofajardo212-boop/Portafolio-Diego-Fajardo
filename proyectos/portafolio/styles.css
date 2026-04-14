@@ -174,7 +174,7 @@ p {
 /*SECCIÓN 3 — PROYECTOS*/
 .proyectos {
   background: #f2f2f2; /* fondo gris claro */
-  padding: 40px 56px; /* espacio interno */
+  padding: 20px 56px; /* espacio interno */
   overflow: hidden; /* contiene los floats de las tarjetas */
 }
 
