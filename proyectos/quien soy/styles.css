@@ -235,11 +235,11 @@ footer {
   color: #aaa; /* texto gris claro */
   font-size: 18px; /* texto pequeño */
    padding: 20px 40px 43px; /* espacio interno del footer */
-  text-align: center;  /* centra el texto */
+  text-align: right;  /* centra el texto */
 
   
 }
 
 .footer {
-  margin-left: 700px; /*texto hacia la derecha */
+  margin-right: 50px; /*texto hacia la derecha */
 }
