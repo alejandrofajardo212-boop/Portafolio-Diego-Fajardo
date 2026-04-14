@@ -1,244 +1,245 @@
-:root {
-    --primary: #57cdeb;
-    --secondary: #10B981;
-    --accent: #F59E0B;
-    --dark: #1F2937;
-    --light: #f3e7e7;
-    --white: #e9e5e5;
-    --gray: #6B7280;
-}
-
-/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0; /* elimina el margen por defecto del navegador */
+  padding: 0; /* elimina el relleno por defecto del navegador */
+  box-sizing: border-box; /* el borde y relleno no agrandan el tamaño del elemento */
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--dark);
-    background-color: var(--light);
+html, body {
+  height: 100vh; /* ocupa el 100% de la altura de la pantalla */
+  overflow: hidden; /* impide que la página completa haga scroll */
+  font-family:
+    "Segoe UI", "Helvetica Neue", sans-serif; /* fuente general de toda la página */
 }
 
-/* Contenedor central */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/*NAV*/
+nav {
+  background: #2c2c2c; /* color de fondo oscuro */
+  padding: 10px 40px 10px; /* espacio interno arriba/abajo y lados */
+  overflow: hidden; /* contiene los elementos flotantes internos */
 }
 
-/* ===================
-   HEADER / ENCABEZADO
-   =================== */
-.header {
-    background: linear-gradient(135deg, var(--primary), #3a3a3a);
-    color: var(--white);
-    padding: 40px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.nombre-nav {
+  margin-left: 15px; /* mueve el texto dependiendo de los px*/
+  float: left; /* empuja el nombre al extremo izquierdo */
+  color: white; /* color del texto */
+  font-size: 30px; /* tamaño de la fuente */
+  font-weight: 300; /* grosor fino de la fuente */
+  line-height: 1.6; /* altura de línea para centrar verticalmente */
 }
 
-.header .titulo {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.nombre-nav strong {
+  font-weight: 700; /* negrilla para el primer nombre */
 }
 
-.header .subtitulo {
-    font-size: 1.2rem;
-    opacity: 0.9;
+.enlaces-nav {
+  margin-right: 55px; /* mueve el texto dependiendo de los px*/
+  float: right; /* empuja los enlaces al extremo derecho */
+  line-height: 1.6; /* altura de línea para alinear con el nombre */
+ margin-top: 5px; /* empuja los enlaces hacia abajo para abajo*/
 }
 
-/* ===================
-   HERO - PRESENTACIÓN
-   =================== */
-.hero {
-    background: var(--white);
-    padding: 50px 0;
-    text-align: center;
-    border-bottom: 1px solid #E5E7EB;
+.enlaces-nav a {
+  color: #cccccc; /* color gris claro para los enlaces */
+  text-decoration: none; /* quita el subrayado de los enlaces */
+  margin-left: 20px; /* separación entre cada enlace */
+  font-size: 20px; /* tamaño de fuente de los enlaces */
+  letter-spacing: 0.5px; /* espacio entre letras */
+  transition: color 0.2s; /* animación suave al cambiar de color */
 }
 
-.hero h2 {
-    font-size: 2rem;
-    color: var(--dark);
-    margin-bottom: 15px;
+.enlaces-nav a:hover,
+.enlaces-nav a.activo {
+  color: white; /* color blanco al pasar el mouse o estar activo */
+  font-weight: 600; /* un poco más grueso al estar activo */
 }
 
-.hero p {
-    font-size: 1.1rem;
-    color: var(--gray);
-    margin-bottom: 10px;
+/*MAIN*/
+main {
+  height: calc(
+    100vh - 40px
+  ); /* altura total de pantalla menos el alto del nav */
+  overflow-y: auto; /* solo este contenedor hace scroll vertical */
 }
 
-/* ===================
-   CONTENIDO PRINCIPAL
-   =================== */
-.main {
-    padding: 60px 0;
+/*SECCIÓN 1 — INICIO*/
+.inicio {
+  background: #ffffff; /* fondo blanco */
+  padding: 5px 15px 0px 5px; /* espacio interno generoso */
+  overflow: hidden; /* contiene los floats internos */
+  min-height: 420px; /* altura mínima para que no quede muy pequeña */
 }
 
-.section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--dark);
+.imagen-inicio {
+  float: left; /* la imagen flota a la izquierda */
+  width: 60%; /* ocupa el 45% del ancho */
+  text-align: center; /* centra la imagen dentro del contenedor */
+  padding-top: 10px; /* baja un poco la imagen */
 }
 
-/* ===================
-   GALERÍA DE PROYECTOS
-   =================== */
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.imagen-inicio img {
+  width: 100%; /* la imagen ocupa todo el ancho de su contenedor */
+  max-width: 480px; /* pero no más de 380px */
+  margin-right: -110px;
 }
 
-
-/* Tarjeta de proyecto */
-.proyecto-card {
-    background: var(--white);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.texto-inicio {
+  float: right; /* el texto flota a la derecha */
+  width: 40%; /* ocupa el 50% del ancho */
+  padding-top: 40px; /* baja el texto para centrarlo visualmente */
 }
 
-.proyecto-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+.texto-inicio h1 {
+  font-size: 52px; /* título grande */
+  font-weight: 700; /* negrilla */
+  color: #f77124; /* color rojo */
+  margin-bottom: 20px; /* espacio debajo del título */
+  line-height: 1.1; /* altura de línea compacta */
+  margin-left: -110px; /* mover texto hacia la izquiera */
 }
 
-/* Imagen del proyecto - Ahora con gradientes CSS */
-.proyecto-imagen {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+.texto-inicio p {
+  font-size: 19px; /* tamaño del párrafo */
+  color: #555; /* gris oscuro para el texto */
+  line-height: 1.7; /* altura de línea para legibilidad */
+  margin-bottom: 30px; /* espacio antes del botón */
+  margin-left: -100px; /* mover texto hacia la izquiera */
+  
 }
 
-/* Gradiente para cada proyecto */
-.proyecto-1 {
-    background: linear-gradient(135deg, #25ffff, #310086);
+p {
+  margin-bottom: 5px;
 }
 
-.proyecto-2 {
-    background: linear-gradient(135deg, #f1ee2f, #000000);
+.boton-rojo-arriba {
+  background: #f37a34; /* fondo rojo */
+  color: white; /* texto blanco */
+  border: none; /* sin borde */
+  padding: 8px 8px; /* espacio interno del botón */
+  font-size: 22px; /* tamaño de texto del botón */
+  border-radius: 4px; /* esquinas ligeramente redondeadas */
+  cursor: pointer; /* cursor de manita al pasar el mouse */
+  text-decoration: none; /* quita subrayado si es un enlace */
+  transition: background 0.2s; /* animación suave al hacer hover */
+  margin-left: -100px; /* mover texto hacia la izquiera */
+  margin-top: -5px;
 }
 
-.proyecto-3 {
-    background: linear-gradient(135deg, #6af09d, #181818);
+.boton-rojo {
+  background: #f37a34; /* fondo rojo */
+  color: white; /* texto blanco */
+  border: none; /* sin borde */
+  padding: 8px 8px; /* espacio interno del botón */
+  font-size: 18px; /* tamaño de texto del botón */
+  font-weight: 600; /* texto semi-negrilla */
+  border-radius: 4px; /* esquinas ligeramente redondeadas */
+  cursor: pointer; /* cursor de manita al pasar el mouse */
+  text-decoration: none; /* quita subrayado si es un enlace */
+  transition: background 0.2s; /* animación suave al hacer hover */
 }
 
-.proyecto-4 {
-    background: linear-gradient(135deg, #EC4899, #DB2777);
+.boton-rojo:hover {
+  background: #e75b0a; /* rojo más oscuro al pasar el mouse */
 }
 
-/* Número del proyecto */
-.numero-proyecto {
-    font-size: 5rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.3);
-    position: absolute;
-    transition: transform 0.3s ease;
+/* SECCIÓN 2 — QUIEN SOY */
+.quien-soy {
+  background: #f37a34; /* fondo rojo */
+  padding:  13px 60px 20px; /* espacio interno */
+  text-align: center; /* centra todo el contenido */
 }
 
-.proyecto-card:hover .numero-proyecto {
-    transform: scale(1.1) rotate(5deg);
+.foto-perfil {
+  width: 200px; /* ancho fijo del avatar */
+  height: 200px; /* alto fijo del avatar */
+  border-radius: 50%; /* hace la imagen circular */
+  border: 6px solid white; /* borde blanco alrededor del círculo */
+  margin: 0 auto 18px auto; /* centra horizontalmente y agrega espacio abajo */
+  object-fit: cover; /* recorta la imagen sin deformarla */
 }
 
-.proyecto-card:hover .proyecto-imagen {
-    transform: scale(1.05);
+.quien-soy blockquote {
+  font-size: 30px; /* texto grande para la cita */
+  color: white; /* texto blanco */
+  line-height: 1.7; /* espaciado entre líneas */
+  max-width: 800px; /* ancho máximo para que no sea tan ancho */
+  margin: 0 auto 16px auto; /* centra el bloque y agrega espacio abajo */
 }
 
-/* Overlay al pasar el mouse */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(199, 129, 240, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.quien-soy cite {
+  color: rgba(255, 255, 255, 0.8); /* blanco semitransparente */
+  font-size: 15px; /* tamaño pequeño para la firma */
+  font-style: italic; /* cursiva para la firma */
 }
 
-.proyecto-card:hover .overlay {
-    opacity: 1;
+/*SECCIÓN 3 — PROYECTOS*/
+.proyectos {
+  background: #f2f2f2; /* fondo gris claro */
+  padding: 20px 56px; /* espacio interno */
+  overflow: hidden; /* contiene los floats de las tarjetas */
 }
 
-.ver-mas {
-    color: var(--white);
-    font-size: 1.2rem;
-    font-weight: bold;
+.proyectos h2 {
+  font-size: 50px; /* título de sección grande */
+  font-weight: 700; /* negrilla */
+  color: #333; /* gris oscuro */
+  text-align: center; /* centrado */
+  margin-bottom: 40px; /* espacio antes de las tarjetas */
 }
 
-/* Información del proyecto */
-.proyecto-info {
-    padding: 20px;
+.contenedor-tarjetas {
+  overflow: hidden; /* contiene los floats de las tarjetas */
 }
 
-.proyecto-info h3 {
-    font-size: 1.3rem;
-    color: var(--dark);
-    margin-bottom: 10px;
+.tarjeta {
+  float: left; /* las tarjetas flotan una al lado de la otra */
+  width: 23%; /* cada tarjeta ocupa el 23% del ancho */
+  margin-right: 2%; /* separación entre tarjetas */
+  background: white; /* fondo blanco */
+  border-radius: 4px; /* esquinas redondeadas */
+  overflow: hidden; /* recorta la imagen a las esquinas redondeadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+  text-align: center; /* centra el contenido interno */
 }
 
-.proyecto-info p {
-    color: var(--gray);
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+.tarjeta:last-child {
+  margin-right: 0; /* la última tarjeta no tiene margen derecho */
 }
 
-.etiqueta {
-    display: inline-block;
-    background: rgb(209, 203, 203);
-    color: var(--white);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
+.tarjeta img {
+  width: 100%; /* la imagen ocupa todo el ancho de la tarjeta */
+  height: 300px; /* altura fija para que todas queden iguales */
+  object-fit: cover; /* recorta la imagen sin deformarla */
 }
 
-/* ===================
-   FOOTER / PIE DE PÁGINA
-   =================== */
+.cuerpo-tarjeta {
+  padding: 20px 16px; /* espacio interno del texto de la tarjeta */
+}
+
+.cuerpo-tarjeta h3 {
+  font-size: 20px; /* tamaño del título de la tarjeta */
+  font-weight: 600; /* semi-negrilla */
+  color: #333; /* gris oscuro */
+  margin-bottom: 12px; /* espacio debajo del título */
+}
+
+.cuerpo-tarjeta p {
+  font-size: 20px; /* texto pequeño de descripción */
+  color: #777; /* gris medio */
+  line-height: 1.6; /* espaciado entre líneas */
+  margin-bottom: 20px; /* espacio antes del botón */
+}
+
+/*PIE DE PÁGINA*/
+footer {
+  background: #2c2c2c; /* fondo oscuro igual que el nav */
+  color: #aaa; /* texto gris claro */
+  font-size: 18px; /* texto pequeño */
+   padding: 20px 40px 43px; /* espacio interno del footer */
+  text-align: center;  /* centra el texto */
+
+  
+}
+
 .footer {
-    background: var(--dark);
-    color: var(--white);
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 60px;
-}
-
-.footer p {
-    opacity: 0.8;
-}
-
-/* ===================
-   RESPONSIVE - MÓVILES
-   =================== */
-@media (max-width: 768px) {
-    .header .titulo {
-        font-size: 1.8rem;
-    }
-
-    .hero h2 {
-        font-size: 1.5rem;
-    }
-
-    .galeria {
-        grid-template-columns: 1fr;
-    }
+  margin-left: 700px; /*texto hacia la derecha */
 }
