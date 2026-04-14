@@ -19,7 +19,7 @@ nav {
 }
 
 .nombre-nav {
-  margin-left: 30px; /* mueve el texto dependiendo de los px*/
+  margin-left: 15px; /* mueve el texto dependiendo de los px*/
   float: left; /* empuja el nombre al extremo izquierdo */
   color: white; /* color del texto */
   font-size: 30px; /* tamaño de la fuente */
@@ -32,7 +32,7 @@ nav {
 }
 
 .enlaces-nav {
-  margin-right: 70px; /* mueve el texto dependiendo de los px*/
+  margin-right: 55px; /* mueve el texto dependiendo de los px*/
   float: right; /* empuja los enlaces al extremo derecho */
   line-height: 1.6; /* altura de línea para alinear con el nombre */
  margin-top: 5px; /* empuja los enlaces hacia abajo para abajo*/
@@ -78,8 +78,8 @@ main {
 
 .imagen-inicio img {
   width: 100%; /* la imagen ocupa todo el ancho de su contenedor */
-  max-width: 600px; /* pero no más de 380px */
-  margin-right: -200px;
+  max-width: 480px; /* pero no más de 380px */
+  margin-right: -110px;
 }
 
 .texto-inicio {
@@ -94,15 +94,15 @@ main {
   color: #f77124; /* color rojo */
   margin-bottom: 20px; /* espacio debajo del título */
   line-height: 1.1; /* altura de línea compacta */
-  margin-left: -170px; /* mover texto hacia la izquiera */
+  margin-left: -110px; /* mover texto hacia la izquiera */
 }
 
 .texto-inicio p {
-  font-size: 22px; /* tamaño del párrafo */
+  font-size: 19px; /* tamaño del párrafo */
   color: #555; /* gris oscuro para el texto */
   line-height: 1.7; /* altura de línea para legibilidad */
   margin-bottom: 30px; /* espacio antes del botón */
-  margin-left: -170px; /* mover texto hacia la izquiera */
+  margin-left: -100px; /* mover texto hacia la izquiera */
   
 }
 
@@ -120,7 +120,7 @@ p {
   cursor: pointer; /* cursor de manita al pasar el mouse */
   text-decoration: none; /* quita subrayado si es un enlace */
   transition: background 0.2s; /* animación suave al hacer hover */
-  margin-left: -170px; /* mover texto hacia la izquiera */
+  margin-left: -100px; /* mover texto hacia la izquiera */
   margin-top: -5px;
 }
 
@@ -153,7 +153,7 @@ p {
   height: 200px; /* alto fijo del avatar */
   border-radius: 50%; /* hace la imagen circular */
   border: 6px solid white; /* borde blanco alrededor del círculo */
-  margin: 0 auto 40px auto; /* centra horizontalmente y agrega espacio abajo */
+  margin: 0 auto 18px auto; /* centra horizontalmente y agrega espacio abajo */
   object-fit: cover; /* recorta la imagen sin deformarla */
 }
 
@@ -207,7 +207,7 @@ p {
 
 .tarjeta img {
   width: 100%; /* la imagen ocupa todo el ancho de la tarjeta */
-  height: 320px; /* altura fija para que todas queden iguales */
+  height: 300px; /* altura fija para que todas queden iguales */
   object-fit: cover; /* recorta la imagen sin deformarla */
 }
 
@@ -241,5 +241,5 @@ footer {
 }
 
 .footer {
-  margin-left: 1370px; /*texto hacia la derecha */
+  margin-left: 700px; /*texto hacia la derecha */
 }
