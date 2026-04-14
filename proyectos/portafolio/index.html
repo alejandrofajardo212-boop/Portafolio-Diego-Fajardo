@@ -1,109 +1,245 @@
-<!DOCTYPE html>
-<html lang="es">
+* {
+  margin: 0; /* elimina el margen por defecto del navegador */
+  padding: 0; /* elimina el relleno por defecto del navegador */
+  box-sizing: border-box; /* el borde y relleno no agrandan el tamaño del elemento */
+}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Diego Fajardo</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
+html, body {
+  height: 100vh; /* ocupa el 100% de la altura de la pantalla */
+  overflow: hidden; /* impide que la página completa haga scroll */
+  font-family:
+    "Segoe UI", "Helvetica Neue", sans-serif; /* fuente general de toda la página */
+}
 
-<body>
+/*NAV*/
+nav {
+  background: #2c2c2c; /* color de fondo oscuro */
+  padding: 10px 40px 10px; /* espacio interno arriba/abajo y lados */
+  overflow: hidden; /* contiene los elementos flotantes internos */
+}
 
-    
-    <nav>
-        <span class="nombre-nav"><b>Diego Fajardo</b></span>
-        <span class="enlaces-nav">
-            <a href="#inicio" class="activo">Inicio</a>
-            <a href="#quien">¿Quien soy?</a>
-            <a href="#proyectos">Proyectos</a>
-        </span>
-    </nav>
+.nombre-nav {
+  margin-left: 15px; /* mueve el texto dependiendo de los px*/
+  float: left; /* empuja el nombre al extremo izquierdo */
+  color: white; /* color del texto */
+  font-size: 30px; /* tamaño de la fuente */
+  font-weight: 300; /* grosor fino de la fuente */
+  line-height: 1.6; /* altura de línea para centrar verticalmente */
+}
 
-    
-    <main>
+.nombre-nav strong {
+  font-weight: 700; /* negrilla para el primer nombre */
+}
 
-       
-        <section class="inicio" id="inicio">
-            <div class="imagen-inicio">
-                <img style="height: 400px; width: 600px;" src="images/perfil.png" alt="Ilustración">
-            </div>
-            <div class="texto-inicio">
-                <h1>¿Quien soy?</h1>
-                <p>Soy estudiante de Análisis y Desarrollo de Software en el SENA, <br>
-                    Me apasiona crear soluciones tecnológicas, aprender nuevas lógicas <br> de programación
-                     y construir interfaces funcionales que ayuden a las personas.</p>
-                <a href="#quien" class="boton-rojo-arriba">Leer más</a>
-            </div>
-        </section>
+.enlaces-nav {
+  margin-right: 55px; /* mueve el texto dependiendo de los px*/
+  float: right; /* empuja los enlaces al extremo derecho */
+  line-height: 1.6; /* altura de línea para alinear con el nombre */
+ margin-top: 5px; /* empuja los enlaces hacia abajo para abajo*/
+}
 
-        <section class="quien-soy" id="quien">
-            <img class="foto-perfil" src="images/foto6.jpg" alt="Diego Fajardo">
-            <p style="color: white; font-size: 25px; text-align: center; font-weight: bold;">
-                "Actualmente me encuentro en etapa de formación, fortaleciendo mis habilidades
-                 en HTML, CSS, JavaScript y bases de datos. Mi objetivo es convertirme
-                 en un desarrollador integral y aportar al crecimiento tecnológico de mi país y 
-                 aparte de eso poder ayudar a mi familia economicamente para <br>que vivan tranquilos."
-            <p style="color: white; font-size: 25px; font-weight: bold;">- Diego Fajardo</p>
-        </section>
+.enlaces-nav a {
+  color: #cccccc; /* color gris claro para los enlaces */
+  text-decoration: none; /* quita el subrayado de los enlaces */
+  margin-left: 20px; /* separación entre cada enlace */
+  font-size: 20px; /* tamaño de fuente de los enlaces */
+  letter-spacing: 0.5px; /* espacio entre letras */
+  transition: color 0.2s; /* animación suave al cambiar de color */
+}
 
-        
-        <section class="proyectos" id="proyectos">
-            <h2>Mis proyectos</h2>
-            <div class="contenedor-tarjetas">
+.enlaces-nav a:hover,
+.enlaces-nav a.activo {
+  color: white; /* color blanco al pasar el mouse o estar activo */
+  font-weight: 600; /* un poco más grueso al estar activo */
+}
 
-                <div class="tarjeta">
-                    <img src="images/es1.jpg" alt="Proyecto 1">
-                    <div class="cuerpo-tarjeta">
-                        <h3>Proyecto 1</h3>
-                        <p>Proyecto de CSS puro donde se construye una ciudad con multiples edificios
-                            y casas usando solo div y estilos de color, gradientes y sombras.</p>
-                        <a href="#" class="boton-rojo">Ver proyecto</a>
-                    </div>
-                </div>
+/*MAIN*/
+main {
+  height: calc(
+    100vh - 40px
+  ); /* altura total de pantalla menos el alto del nav */
+  overflow-y: auto; /* solo este contenedor hace scroll vertical */
+}
 
-                <div class="tarjeta">
-                    <img src="images/foto3.jpg" alt="Proyecto 2">
-                    <div class="cuerpo-tarjeta">
-                        <h3>Proyecto 2</h3>
-                        <p>Proyecto para aprender a usar diferentes colores y tonalidades en CSS,
-                            creando marcadores de colores con gradientes y sombras y muchos estilos diferentes.</p>
-                        <a href="#" class="boton-rojo">Ver proyecto</a>
-                    </div>
-                </div>
+/*SECCIÓN 1 — INICIO*/
+.inicio {
+  background: #ffffff; /* fondo blanco */
+  padding: 5px 15px 0px 5px; /* espacio interno generoso */
+  overflow: hidden; /* contiene los floats internos */
+  min-height: 420px; /* altura mínima para que no quede muy pequeña */
+}
 
-                <div class="tarjeta">
-                    <img src="images/es2.jpg" alt="Proyecto 3">
-                    <div class="cuerpo-tarjeta">
-                        <h3>Proyecto 3</h3>
-                        <p>Proyecto donde se construye un widget del clima visualmente usando
-                            solo HTML y CSS, practicando layouts y proporciones en una tarjeta. </p>
-                        <a href="#" class="boton-rojo">Ver proyecto</a>
-                    </div>
-                </div>
+.imagen-inicio {
+  float: left; /* la imagen flota a la izquierda */
+  width: 60%; /* ocupa el 45% del ancho */
+  text-align: center; /* centra la imagen dentro del contenedor */
+  padding-top: 10px; /* baja un poco la imagen */
+}
 
-                <div class="tarjeta">
-                    <img src="images/es3.webp" alt="Proyecto 4">
-                    <div class="cuerpo-tarjeta">
-                        <h3>Proyecto 4</h3>
-                        <p>Proyecto donde se dibuja una carita de gato completamente con CSS,
-                            practicando bordes, border-radius y formas geométricas para asi llegar a lo esperado.</p>
-                        <a href="#" class="boton-rojo">Ver proyecto</a>
-                    </div>
-                </div>
+.imagen-inicio img {
+  width: 100%; /* la imagen ocupa todo el ancho de su contenedor */
+  max-width: 480px; /* pero no más de 380px */
+  margin-right: -110px;
+}
 
-            </div>
-        </section>
+.texto-inicio {
+  float: right; /* el texto flota a la derecha */
+  width: 40%; /* ocupa el 50% del ancho */
+  padding-top: 40px; /* baja el texto para centrarlo visualmente */
+}
 
-        
-        <footer>
-           <b><p class="footer">© 2026 Diego Fajardo — Todos los derechos reservados</p> </b>
-        </footer>
+.texto-inicio h1 {
+  font-size: 52px; /* título grande */
+  font-weight: 700; /* negrilla */
+  color: #f77124; /* color rojo */
+  margin-bottom: 20px; /* espacio debajo del título */
+  line-height: 1.1; /* altura de línea compacta */
+  margin-left: -110px; /* mover texto hacia la izquiera */
+}
 
-    </main>
+.texto-inicio p {
+  font-size: 19px; /* tamaño del párrafo */
+  color: #555; /* gris oscuro para el texto */
+  line-height: 1.7; /* altura de línea para legibilidad */
+  margin-bottom: 30px; /* espacio antes del botón */
+  margin-left: -100px; /* mover texto hacia la izquiera */
+  
+}
 
-</body>
+p {
+  margin-bottom: 5px;
+}
 
-</html>
+.boton-rojo-arriba {
+  background: #f37a34; /* fondo rojo */
+  color: white; /* texto blanco */
+  border: none; /* sin borde */
+  padding: 8px 8px; /* espacio interno del botón */
+  font-size: 22px; /* tamaño de texto del botón */
+  border-radius: 4px; /* esquinas ligeramente redondeadas */
+  cursor: pointer; /* cursor de manita al pasar el mouse */
+  text-decoration: none; /* quita subrayado si es un enlace */
+  transition: background 0.2s; /* animación suave al hacer hover */
+  margin-left: -100px; /* mover texto hacia la izquiera */
+  margin-top: -5px;
+}
 
-</body>
-</html>
+.boton-rojo {
+  background: #f37a34; /* fondo rojo */
+  color: white; /* texto blanco */
+  border: none; /* sin borde */
+  padding: 8px 8px; /* espacio interno del botón */
+  font-size: 18px; /* tamaño de texto del botón */
+  font-weight: 600; /* texto semi-negrilla */
+  border-radius: 4px; /* esquinas ligeramente redondeadas */
+  cursor: pointer; /* cursor de manita al pasar el mouse */
+  text-decoration: none; /* quita subrayado si es un enlace */
+  transition: background 0.2s; /* animación suave al hacer hover */
+}
+
+.boton-rojo:hover {
+  background: #e75b0a; /* rojo más oscuro al pasar el mouse */
+}
+
+/* SECCIÓN 2 — QUIEN SOY */
+.quien-soy {
+  background: #f37a34; /* fondo rojo */
+  padding:  13px 60px 20px; /* espacio interno */
+  text-align: center; /* centra todo el contenido */
+}
+
+.foto-perfil {
+  width: 200px; /* ancho fijo del avatar */
+  height: 200px; /* alto fijo del avatar */
+  border-radius: 50%; /* hace la imagen circular */
+  border: 6px solid white; /* borde blanco alrededor del círculo */
+  margin: 0 auto 18px auto; /* centra horizontalmente y agrega espacio abajo */
+  object-fit: cover; /* recorta la imagen sin deformarla */
+}
+
+.quien-soy blockquote {
+  font-size: 30px; /* texto grande para la cita */
+  color: white; /* texto blanco */
+  line-height: 1.7; /* espaciado entre líneas */
+  max-width: 800px; /* ancho máximo para que no sea tan ancho */
+  margin: 0 auto 16px auto; /* centra el bloque y agrega espacio abajo */
+}
+
+.quien-soy cite {
+  color: rgba(255, 255, 255, 0.8); /* blanco semitransparente */
+  font-size: 15px; /* tamaño pequeño para la firma */
+  font-style: italic; /* cursiva para la firma */
+}
+
+/*SECCIÓN 3 — PROYECTOS*/
+.proyectos {
+  background: #f2f2f2; /* fondo gris claro */
+  padding: 20px 56px; /* espacio interno */
+  overflow: hidden; /* contiene los floats de las tarjetas */
+}
+
+.proyectos h2 {
+  font-size: 50px; /* título de sección grande */
+  font-weight: 700; /* negrilla */
+  color: #333; /* gris oscuro */
+  text-align: center; /* centrado */
+  margin-bottom: 40px; /* espacio antes de las tarjetas */
+}
+
+.contenedor-tarjetas {
+  overflow: hidden; /* contiene los floats de las tarjetas */
+}
+
+.tarjeta {
+  float: left; /* las tarjetas flotan una al lado de la otra */
+  width: 23%; /* cada tarjeta ocupa el 23% del ancho */
+  margin-right: 2%; /* separación entre tarjetas */
+  background: white; /* fondo blanco */
+  border-radius: 4px; /* esquinas redondeadas */
+  overflow: hidden; /* recorta la imagen a las esquinas redondeadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+  text-align: center; /* centra el contenido interno */
+}
+
+.tarjeta:last-child {
+  margin-right: 0; /* la última tarjeta no tiene margen derecho */
+}
+
+.tarjeta img {
+  width: 100%; /* la imagen ocupa todo el ancho de la tarjeta */
+  height: 300px; /* altura fija para que todas queden iguales */
+  object-fit: cover; /* recorta la imagen sin deformarla */
+}
+
+.cuerpo-tarjeta {
+  padding: 20px 16px; /* espacio interno del texto de la tarjeta */
+}
+
+.cuerpo-tarjeta h3 {
+  font-size: 20px; /* tamaño del título de la tarjeta */
+  font-weight: 600; /* semi-negrilla */
+  color: #333; /* gris oscuro */
+  margin-bottom: 12px; /* espacio debajo del título */
+}
+
+.cuerpo-tarjeta p {
+  font-size: 20px; /* texto pequeño de descripción */
+  color: #777; /* gris medio */
+  line-height: 1.6; /* espaciado entre líneas */
+  margin-bottom: 20px; /* espacio antes del botón */
+}
+
+/*PIE DE PÁGINA*/
+footer {
+  background: #2c2c2c; /* fondo oscuro igual que el nav */
+  color: #aaa; /* texto gris claro */
+  font-size: 18px; /* texto pequeño */
+   padding: 20px 40px 43px; /* espacio interno del footer */
+  text-align: center;  /* centra el texto */
+
+  
+}
+
+.footer {
+  margin-left: 700px; /*texto hacia la derecha */
+}
