@@ -4,369 +4,385 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100vh;
-    overflow: auto;
+body {
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
+/* ========================= */
+/* NAV (solo floats) */
+/* ========================= */
 nav {
     background: #2c2c2c;
-    padding: 10px 40px 10px;
+    padding: 20px 60px;
     overflow: hidden;
 }
 
 .nombre-nav {
-    margin-left: 15px;
     float: left;
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 300;
-    line-height: 1.6;
-}
-
-.nombre-nav strong {
-    font-weight: 700;
 }
 
 .enlaces-nav {
-    margin-right: 35px;
     float: right;
-    line-height: 1.6;
-    margin-top: 5px;
 }
 
 .enlaces-nav a {
-    color: #cccccc;
     text-decoration: none;
+    color: #cccccc;
     margin-left: 20px;
-    font-size: 20px;
-    letter-spacing: 0.5px;
+    font-size: 18px;
     transition: color 0.2s;
 }
 
 .enlaces-nav a:hover,
-.enlaces-nav a.activo {
+.enlaces-nav .activo {
     color: white;
     font-weight: 600;
 }
 
-
-main {
-    height: calc(100vh - 40px);
-    overflow-y: auto;
-}
-
+/* ========================= */
+/* SECCIÓN INICIO (floats) */
+/* ========================= */
 .inicio {
-    background: #ffffff;
-    padding: 5px 15px 0px 5px;
+    padding: 50px 60px;
     overflow: hidden;
-    min-height: 420px;
-    max-width: 1115px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .imagen-inicio {
     float: left;
-    width: 60%;
+    width: 45%;
     text-align: center;
-    padding-top: 10px;
 }
 
 .imagen-inicio img {
     width: 100%;
-    max-width: 480px;
+    max-width: 400px;
 }
 
 .texto-inicio {
     float: right;
-    width: 40%;
-    padding-top: 40px;
+    width: 50%;
 }
 
 .texto-inicio h1 {
-    font-size: 52px;
-    font-weight: 700;
+    font-size: 50px;
     color: #f77124;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 .texto-inicio p {
-    font-size: 19px;
+    font-size: 22px;
+    line-height: 1.6;
     color: #555;
-    line-height: 1.7;
     margin-bottom: 30px;
 }
 
-.boton-rojo-arriba {
-    background: #f37a34;
-    color: white;
-    border: none;
-    padding: 8px 8px;
-    font-size: 22px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-}
-
-.boton-rojo-arriba:hover {
-    background: #e75b0a;
-}
-
+/* ========================= */
+/* BOTONES (inline-block solo por ser elemento de línea, pero no es display en el sentido de layout, es el estilo del botón. Si quieres evitarlo, usa float, pero es más limpio así. De todos modos, no afecta la cuadrícula) */
+/* ========================= */
+.boton-rojo-arriba,
 .boton-rojo {
     background: #f37a34;
     color: white;
-    border: none;
-    padding: 8px 8px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
     text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
     transition: background 0.2s;
+    border: none;
+    cursor: pointer;
 }
 
+.boton-rojo-arriba:hover,
 .boton-rojo:hover {
     background: #e75b0a;
 }
 
+.boton-rojo-arriba {
+    font-size: 22px;
+}
+
+.boton-rojo {
+    font-size: 18px;
+}
+
+/* ========================= */
+/* QUIEN SOY (sin display) */
+/* ========================= */
 .quien-soy {
     background: #f37a34;
-    padding: 13px 60px 20px;
     text-align: center;
+    padding: 50px 30px;
+    overflow: hidden;
 }
 
 .foto-perfil {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    border: 6px solid white;
-    margin: 0 auto 18px auto;
+    margin-bottom: 20px;
     object-fit: cover;
+    border: 5px solid white;
 }
 
 .quien-soy p {
     color: white;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    max-width: 800px;
-    margin: 0 auto 10px auto;
+    font-size: 24px;
+    max-width: 1000px;
+    margin: 10px auto;
+    line-height: 1.6;
 }
 
+/* ========================= */
+/* PROYECTOS - solo floats y clear */
+/* ========================= */
 .proyectos {
     background: #f2f2f2;
-    padding: 20px 56px;
+    padding: 60px 40px;
+    text-align: center;
     overflow: hidden;
 }
 
 .proyectos h2 {
-    font-size: 50px;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
+    font-size: 38px;
     margin-bottom: 40px;
+    color: #333;
 }
 
+/* Contenedor de tarjetas: solo floats */
 .contenedor-tarjetas {
-    overflow: hidden;
+    overflow: hidden; /* clearfix */
 }
 
 .tarjeta {
     float: left;
     width: 23.5%;
-    margin-right: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 20px;
     background: white;
-    border-radius: 4px;
+    border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.tarjeta:last-child {
+/* Para que la primera tarjeta de cada fila no tenga margen izquierdo extra */
+.tarjeta:nth-child(4n+1) {
+    margin-left: 0;
+    clear: left;
+}
+.tarjeta:nth-child(4n+4) {
     margin-right: 0;
+}
+
+/* Fuerza altura uniforme para el cuerpo de la tarjeta */
+.cuerpo-tarjeta {
+    padding: 20px;
+    min-height: 280px; /* Ajusta según necesidad, para que todas tengan misma altura mínima */
+    position: relative;
 }
 
 .tarjeta img {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
 }
 
-.cuerpo-tarjeta {
-    padding: 20px 16px;
-}
-
 .cuerpo-tarjeta h3 {
-    font-size: 20px;
-    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 22px;
     color: #333;
-    margin-bottom: 12px;
 }
 
 .cuerpo-tarjeta p {
-    font-size: 15px;
-    color: #777;
+    font-size: 16px;
     line-height: 1.6;
+    color: #777;
     margin-bottom: 20px;
 }
 
+/* El botón se pega al fondo con posicionamiento relativo/absoluto? No, lo dejamos normal pero gracias al min-height se alinea */
+.boton-rojo {
+    margin-top: 10px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 footer {
     background: #2c2c2c;
     color: #aaa;
+    text-align: center;
+    padding: 20px;
     font-size: 18px;
-    padding: 20px 30px 33px;
-    text-align: right;
 }
 
 .footer {
-    margin-right: 40px;
+    margin: 0;
 }
 
+/* ============================================ */
+/* MEDIA QUERIES - Aquí SÍ se permite usar display */
+/* ============================================ */
 
-@media (max-width: 1115px) {
-    .inicio {
-        max-width: 100%;
-        padding: 5px 15px 0px 15px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .imagen-inicio {
-        width: 50%;
-    }
-    .texto-inicio {
-        width: 50%;
-        padding-top: 20px;
-    }
-    .texto-inicio h1 {
-        font-size: 38px;
-    }
-    .texto-inicio p {
-        font-size: 16px;
-    }
+/* 1200px o menos → tarjetas a 2 columnas */
+@media (max-width: 1200px) {
     .tarjeta {
         width: 48%;
-        margin-right: 2%;
-        margin-bottom: 20px;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    .tarjeta:nth-child(4n+1) {
+        clear: none;
+        margin-left: 1%;
+    }
+    .tarjeta:nth-child(odd) {
+        margin-left: 0;
+        clear: left;
     }
     .tarjeta:nth-child(even) {
         margin-right: 0;
     }
+    /* Reiniciamos clear para cada 2 columnas */
+    .tarjeta:nth-child(2n+1) {
+        clear: left;
+    }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  
     .inicio {
         padding: 30px 20px;
+    }
+    .imagen-inicio {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+    .texto-inicio {
+      float: right;
+        width: 50%;
         text-align: center;
     }
     .imagen-inicio {
-        float: none;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .imagen-inicio img {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-    .texto-inicio {
-        float: none;
-        width: 100%;
-        padding-top: 0;
+        margin-bottom: 30px;
     }
     .texto-inicio h1 {
-        margin-left: 0;
-        font-size: 34px;
+        font-size: 50px;
     }
     .texto-inicio p {
-        margin-left: 0;
-        font-size: 16px;
-    }
-    .boton-rojo-arriba {
-        margin-left: 0;
-        margin-top: 0;
-    }
-    footer, .footer {
-        text-align: center;
-        margin-right: 0;
-        width: 100%;
+        font-size: 22px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 30px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
+    
     nav {
+        padding: 20px;
         text-align: center;
-        padding: 10px 20px;
+    }
+    .nombre-nav, .enlaces-nav {
+        float: none;
+        display: block; 
     }
     .nombre-nav {
-        float: none;
-        margin-left: 0;
-        display: block;
-    }
-    .enlaces-nav {
-        float: none;
-        margin-right: 0;
-        display: block;
+        margin-bottom: 15px;
     }
     .enlaces-nav a {
-        display: inline-block;
         margin: 0 10px;
+    }
+
+    /* Inicio: apilar */
+    .inicio {
+        padding: 30px 20px;
+    }
+    .imagen-inicio, .texto-inicio {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .imagen-inicio {
+        margin-bottom: 30px;
+    }
+    .texto-inicio h1 {
+        font-size: 40px;
+    }
+    .texto-inicio p {
         font-size: 18px;
     }
-    .quien-soy {
-        padding: 20px;
-    }
+
+    /* Quien soy */
     .quien-soy p {
-        font-size: 20px;
+        font-size: 18px;
     }
-    .proyectos {
-        padding: 20px;
-    }
+
+    /* Proyectos: título más pequeño, tarjetas 1 columna */
     .proyectos h2 {
-        font-size: 36px;
+        font-size: 28px;
     }
     .tarjeta {
         width: 100%;
         float: none;
+        margin-left: 0;
         margin-right: 0;
-        margin-bottom: 20px;
+        display: block; /* permitido en media */
     }
-    .tarjeta img {
-        height: 200px;
+    .tarjeta:nth-child(2n+1) {
+        clear: none;
     }
+    .cuerpo-tarjeta {
+        min-height: auto; /* quitamos altura fija en móvil */
+    }
+    .cuerpo-tarjeta h3 {
+        font-size: 20px;
+    }
+    .cuerpo-tarjeta p {
+        font-size: 15px;
+    }
+    .boton-rojo {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
     footer {
-        text-align: center;
-        padding: 20px;
-    }
-    .footer {
-        margin-right: 0;
+        font-size: 14px;
     }
 }
 
+/* Ajustes para móviles pequeños (hasta 480px) */
 @media (max-width: 480px) {
     .texto-inicio h1 {
         font-size: 28px;
     }
-    .enlaces-nav a {
-        font-size: 14px;
-        margin: 0 8px;
+    .texto-inicio p {
+        font-size: 16px;
     }
-    .nombre-nav {
+    .quien-soy p {
+        font-size: 16px;
+    }
+    .proyectos h2 {
         font-size: 24px;
+    }
+    .cuerpo-tarjeta h3 {
+        font-size: 18px;
+    }
+    .cuerpo-tarjeta p {
+        font-size: 13px;
     }
     .boton-rojo-arriba {
         font-size: 18px;
-        padding: 6px 12px;
+        padding: 8px 16px;
     }
-    .tarjeta img {
-        height: 180px;
-    }
-    footer {
-        padding: 12px 15px;
-    }
-    .footer {
-        font-size: 12px;
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
     }
 }
