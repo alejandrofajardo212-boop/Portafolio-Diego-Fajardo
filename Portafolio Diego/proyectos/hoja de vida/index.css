@@ -1,0 +1,56 @@
+.num {
+    font-size: 20px;
+}
+
+.parte {
+    text-align: center
+}
+
+h2 {
+    background-color: rgb(241, 241, 241) ;
+}
+
+
+img {
+    border: 3.5px solid rgb(200, 234, 245);
+}
+
+.nose {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    
+    
+    background-color: rgb(238, 232, 232);
+}
+
+body {
+    margin: 0;
+}
+
+.tabla {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    vertical-align: top;
+    padding: 25px;
+}
+
+.izq {
+    width: 35%;
+    vertical-align: top;
+    padding: 25px;
+}
+
+.der {
+    width: 80%; 
+    vertical-align: top;
+    padding: 20px;
+}

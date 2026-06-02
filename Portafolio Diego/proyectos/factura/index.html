@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Factura - Alineado</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+        <div class="parte-arriba">
+            <div class="bloque-gris-claro">
+                <div class="logo-falso"></div>
+                <div class="texto-empresa">
+                    <h1>NOMBRE EMPRESA</h1>
+                    <p>ESLOGAN DE LA MARCA AQUÍ</p>
+                </div>
+            </div>
+            <div class="bloque-oscuro">
+                <h1>INVOICE</h1>
+            </div>
+        </div>
+
+        <div class="contenido-factura">
+
+            <div class="fila-datos">
+                <div class="col-izq">
+                    <div class="info-cajas">
+                        <div class="notas-box">
+                            <h3>NOTAS ADICIONALES</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo consequat.</p>
+                        </div>
+                        <div class="cliente-box">
+                            <h3>FACTURA PARA:</h3>
+                            <p><strong>JOHN SMITH</strong><br>123 GREEN LAKE ST.<br>CITY STATE<br>COUNTRY</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-der">
+                    <div class="fechas-caja">
+                        <p>FECHA FACTURA<br><span>03.09.2025</span></p>
+                        <p>FECHA VENCIMIENTO<br><span>03.12.2025</span></p>
+                        <p>FACTURA #<br><span>34256</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabla-productos">
+                <div class="fila-tabla encabezado">
+                    <div class="celda id">#</div>
+                    <div class="celda desc">Descripción del Producto</div>
+                    <div class="celda precio">Precio</div>
+                    <div class="celda cant">Cant</div>
+                    <div class="celda total">Total</div>
+                </div>
+
+                <div class="fila-tabla fondo-gris">
+                    <div class="celda id">1</div>
+                    <div class="celda desc">Item 1</div>
+                    <div class="celda precio">$30.50</div>
+                    <div class="celda cant">3</div>
+                    <div class="celda total">$91.50</div>
+                </div>
+
+                <div class="fila-tabla fondo-blanco">
+                    <div class="celda id">2</div>
+                    <div class="celda desc">Item 2</div>
+                    <div class="celda precio">$50.00</div>
+                    <div class="celda cant">1</div>
+                    <div class="celda total">$50.00</div>
+                </div>
+
+                <div class="fila-tabla fondo-gris">
+                    <div class="celda id">3</div>
+                    <div class="celda desc">Item 3</div>
+                    <div class="celda precio">$70.00</div>
+                    <div class="celda cant">5</div>
+                    <div class="celda total">$350.00</div>
+                </div>
+
+                <div class="fila-tabla fondo-blanco">
+                    <div class="celda id">4</div>
+                    <div class="celda desc">Item 4</div>
+                    <div class="celda precio">$20.00</div>
+                    <div class="celda cant">2</div>
+                    <div class="celda total">$40.00</div>
+                </div>
+            </div>
+
+            <div class="pie-factura">
+                <div class="col-izq-inferior">
+                    <div class="legal">
+                        <h3>TÉRMINOS Y CONDICIONES</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="pagos">
+                        <h3>MÉTODO DE PAGO</h3>
+                        <div class="opciones-click">
+                            <label><input type="radio" name="pago"> Efectivo/Débito</label>
+                            <label><input type="radio" name="pago"> Cheque</label>
+                            <label><input type="radio" name="pago"> Tarjeta</label>
+                        </div>
+                        <div class="inputs-falsos">
+                            <span class="gris-box">Nombre titular</span>
+                            <span class="gris-box">Número de tarjeta</span>
+                            <span class="gris-box">Exp</span>
+                            <span class="gris-box">CV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-der-inferior">
+                    <div class="cuadro-totales">
+                        <p>Subtotal <span>$531.50</span></p>
+                        <p>Impuestos <span>$63.78</span></p>
+                        <p>Envío <span>$12.00</span></p>
+                        <p>Descuento <span>-$15.00</span></p>
+                        <div class="linea-total-final">
+                            TOTAL <span>$592.28</span>
+                        </div>
+                    </div>
+                    <div class="espacio-firma">
+                        <div class="raya"></div>
+                        <p>Firma</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

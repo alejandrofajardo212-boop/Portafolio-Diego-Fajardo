@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background-color: #8a8e8e;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contenedor-principal {
+    width: 900px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    min-height: 1100px; /* Asegura que se vea como una hoja larga */
+}
+
+/* Cabecera */
+.parte-arriba {
+    display: flex;
+    height: 140px;
+}
+
+.bloque-gris-claro {
+    width: 60%;
+    background-color: #e6e9e9;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.logo-falso {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #333;
+    margin-right: 25px;
+    transform: rotate(45deg);
+}
+
+.texto-empresa h1 { 
+    font-size: 32px; 
+    font-weight: 800; 
+    color: #1a1a1a; 
+}
+
+.texto-empresa p { 
+    font-size: 14px; 
+    color: #444; 
+}
+
+.bloque-oscuro {
+    width: 40%;
+    background-color: #333a3b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bloque-oscuro h1 { 
+    font-size: 36px; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
+}
+
+/* Cuerpo y Alineación */
+.fila-datos, .fila-tabla {
+    display: flex;
+}
+
+.pie-factura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-izq { 
+    width: 60%; 
+    padding: 23px; 
+}
+
+.col-izq-inferior{
+    width: 60%; 
+    padding: 23px;
+}
+
+.col-der {
+    width: 40%; 
+    background-color: #333a3b; 
+    color: white; 
+    padding: 44px; 
+}
+.col-der-inferior {
+    padding: 44px; 
+    width: 40%; 
+    color: white; 
+    background-color: #333a3b; 
+
+}
+/* Secciones de texto */
+.info-cajas { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 13px; 
+    margin-bottom: 20px; 
+}
+
+.notas-box, .cliente-box { 
+    width: 35%; 
+}
+
+h3 { 
+    font-size: 16px; 
+    margin-bottom: 12px; 
+    font-weight: 800; 
+}
+
+.notas-box p {
+    text-align: center;
+
+}
+
+.fechas-caja { 
+    text-align: center; 
+    font-size: 13px; 
+    margin-bottom: 30px;
+    
+    
+}
+
+.fechas-caja p { 
+    margin-bottom: 15px; 
+    color: #ccc; 
+}
+
+.fechas-caja span { 
+    color: white; 
+    font-weight: bold; 
+}
+
+/* TABLA - Aquí está el truco del hueco negro */
+.tabla-productos { width: 100%; }
+
+.fila-tabla { align-items: stretch; } /* Para que los fondos oscuros cubran toda la altura */
+
+.celda { padding: 22px 12px; font-size: 16px; }
+
+/* Columnas Blancas/Grises */
+.id { width: 10%; padding-left: 30px; }
+.desc { width: 35%; }
+.precio { width: 15%; }
+
+/* Columnas Oscuras */
+.cant { 
+    width: 15%; 
+    background-color: #333a3b; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding-left: 25px;
+}
+.total { 
+    width: 25%; 
+    background-color: #333a3b; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: left; 
+    padding-left: 30px; 
+}
+
+
+/* Encabezado: Eliminamos el blanco de "Total" */
+.encabezado { 
+    font-weight: bold; 
+}
+
+.encabezado .celda { 
+    padding-bottom: 25px; 
+}
+
+.encabezado .cant, .encabezado .total { 
+    background-color: #333a3b; 
+} /* Forzamos color oscuro */
+
+/* Filas Zebra Corregidas (Fondo Negro Uniforme en Cant) */
+.fondo-gris { 
+    background-color: #e6e9e9; 
+}
+.fondo-blanco { 
+    background-color: #ffffff; 
+}
+
+/* Forzamos que, sin importar el fondo de la fila, 'cant' y 'total' sean siempre negros */
+.fila-tabla .cant,
+.fila-tabla .total {
+    background-color: #333a3b !important; /* El !important asegura que no sea anulado */
+}
+
+/* MÉTODOS DE PAGO (Seleccionables) */
+.opciones-click { 
+    margin-bottom: 15px; 
+    font-size: 14px; 
+}
+
+.opciones-click label { 
+    cursor: pointer; 
+    margin-right: 15px; 
+    display: inline-flex; 
+    align-items: center; 
+}
+
+.opciones-click input { 
+    margin-right: 5px; 
+    cursor: pointer; 
+}
+
+.inputs-falsos { 
+    display: flex; 
+    gap: 5px; 
+    margin-top: 10px; 
+}
+
+.gris-box { 
+    background-color: #e6e9e9; 
+    padding: 6px 12px; 
+    font-size: 12px; 
+    color: #888; 
+    border-radius: 2px; 
+}
+
+/* Totales y Firma */
+.cuadro-totales { 
+    text-align: right; 
+    font-size: 16px; 
+    margin-top: 0px; 
+    margin-right: 35px;
+}
+.cuadro-totales p { 
+    color: #ccc; 
+    margin-bottom: 15px; 
+    display: flex; 
+    justify-content: flex-end; 
+}
+.cuadro-totales p span { 
+    width: 120px; 
+    color: white; 
+    font-weight: bold; 
+}
+
+.linea-total-final {
+    font-size: 26px; font-weight: 800; border-top: 1px solid #555;
+    padding-top: 20px; margin-top: 20px; display: flex; justify-content: flex-end;
+}
+.linea-total-final span { width: 150px; }
+
+/* El bloque oscuro que llega hasta el final */
+.col-der-inferior { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+.espacio-firma { margin-top: 60px; text-align: center; }
+.raya { border-top: 2px solid white; width: 100%; margin-bottom: 10px; }
