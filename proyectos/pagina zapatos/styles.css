@@ -1,0 +1,275 @@
+BASE
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #e9ebef;
+  color: #2c2c2c;
+  padding: 28px;
+}
+
+/* Marco blanco de la aplicación */
+.aplicacion {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,.18);
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== Encabezado ===== */
+.encabezado_principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  font-size: 13px;
+}
+.lado_izquierdo { display: flex; align-items: center; gap: 16px; }
+.boton_menu { font-size: 18px; cursor: pointer; }
+.logo { font-weight: 600; font-size: 15px; }
+
+.menu_superior { display: flex; gap: 34px; font-weight: 500; }
+.menu_superior a:hover { color: #7c4dff; }
+
+.iconos_encabezado { display: flex; align-items: center; gap: 14px; color: #8a8a8a; }
+.texto_buscar { font-size: 12px; }
+.lupa, .icono { font-size: 15px; cursor: pointer; }
+
+/* ===== Portada ===== */
+.seccion_portada {
+  position: relative;
+  height: 250px;
+  background: linear-gradient(120deg, #8a98a6, #b9c3cb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.capa_oscura {
+  position: absolute;
+  inset: 0;
+  background: rgba(60,68,78,.45);
+}
+.contenido_portada { position: relative; text-align: center; }
+.contenido_portada h1 {
+  color: #fff;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+.boton_comprar {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: none;
+  padding: 12px 34px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+
+/* ===== Barra de categoría ===== */
+.barra_categoria {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 28px 18px;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+.ruta { font-weight: 600; }
+.opciones_orden { display: flex; gap: 26px; color: #9a9a9a; }
+.opciones_orden .activo { color: #7c4dff; font-weight: 600; }
+.correo { color: #9a9a9a; }
+
+/* ===== Contenedor principal ===== */
+.contenedor_principal {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 30px;
+  padding: 26px 28px 40px;
+}
+
+/* ===== Barra lateral / filtros ===== */
+.bloque_filtro { margin-bottom: 28px; }
+.titulo_filtro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.flecha { color: #bbb; font-size: 9px; }
+
+.lista_categorias li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8a8a8a;
+  padding: 5px 0;
+}
+.lista_categorias span { color: #c0c0c0; }
+
+/* Precio */
+.barra_precio {
+  position: relative;
+  height: 4px;
+  background: #eee;
+  border-radius: 4px;
+  margin: 4px 0 16px;
+}
+.punto_precio {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #7c4dff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.filtro_precios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 10px;
+}
+.filtro_precios label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8a8a8a;
+}
+.filtro_precios input { accent-color: #7c4dff; }
+
+/* Colores */
+.filtro_colores { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtro_colores span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Tallas */
+.filtro_tallas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.filtro_tallas span {
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  font-size: 11px;
+  text-align: center;
+  padding: 7px 0;
+  color: #8a8a8a;
+  cursor: pointer;
+}
+.filtro_tallas .talla_activa {
+  background: #7c4dff;
+  border-color: #7c4dff;
+  color: #fff;
+}
+
+/* ===== Catálogo de productos ===== */
+.cuadrilla_zapatos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.tarjeta_zapato {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.imagen_zapato {
+  position: relative;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imagen_zapato svg { width: 70%; }
+.icono_tarjeta {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #555;
+  box-shadow: 0 3px 8px rgba(0,0,0,.12);
+}
+.informacion_zapato { padding: 14px 16px 18px; }
+.informacion_zapato h4 { font-size: 13px; font-weight: 600; }
+.informacion_zapato .categoria {
+  display: block;
+  font-size: 11px;
+  color: #a0a0a0;
+  margin: 4px 0 8px;
+}
+.informacion_zapato .precio { font-size: 13px; font-weight: 600; }
+
+/* ===== Pie de página ===== */
+.pie_pagina {
+  background: #fafafa;
+  padding: 36px 28px 22px;
+  border-top: 1px solid #eee;
+}
+.enlaces_pie {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 26px;
+}
+.columna_pie h5,
+.informacion_empresa h5 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.columna_pie a {
+  display: block;
+  font-size: 11px;
+  color: #9a9a9a;
+  padding: 3px 0;
+}
+.informacion_empresa h5 { color: #7c4dff; }
+.informacion_empresa p { font-size: 11px; color: #9a9a9a; line-height: 1.7; }
+
+.barra_inferior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  padding-top: 18px;
+  font-size: 11px;
+  color: #9a9a9a;
+}
+.enlaces_legales { display: flex; gap: 22px; }
+
+/* ===== Responsivo ===== */
+@media (max-width: 760px) {
+  .contenedor_principal { grid-template-columns: 1fr; }
+  .cuadrilla_zapatos { grid-template-columns: repeat(2, 1fr); }
+  .menu_superior, .opciones_orden, .correo, .texto_buscar { display: none; }
+  .enlaces_pie { grid-template-columns: repeat(2, 1fr); }
+  .barra_inferior { flex-direction: column; gap: 12px; }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructor — Men's Shoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="aplicacion">
+
+    <!-- Encabezado -->
+    <header class="encabezado_principal">
+      <div class="lado_izquierdo">
+        <span class="boton_menu">&#9776;</span>
+        <span class="logo">Constructor</span>
+      </div>
+      <nav class="menu_superior">
+        <a href="#">Women</a>
+        <a href="#">Men</a>
+        <a href="#">Children</a>
+      </nav>
+      <div class="iconos_encabezado">
+        <span class="lupa">&#9906;</span>
+        <span class="texto_buscar">Search ...</span>
+        <span class="icono">&#9787;</span>
+        <span class="icono">&#128717;</span>
+      </div>
+    </header>
+
+    <!-- Portada principal -->
+    <section class="seccion_portada">
+      <div class="capa_oscura"></div>
+      <div class="contenido_portada">
+        <h1>Men's Shoes</h1>
+      </div>
+      <button class="boton_comprar">Shop Now</button>
+    </section>
+
+    <!-- Barra de navegación de categoría -->
+    <nav class="barra_categoria">
+      <span class="ruta">Mens Shoes &amp; Sneakers</span>
+      <div class="opciones_orden">
+        <a href="#" class="activo">Newest</a>
+        <a href="#">Highest Rated</a>
+        <a href="#">Low Price to High</a>
+        <a href="#">High Price to Low</a>
+      </div>
+      <span class="correo">&#9993; Your Mail</span>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="contenedor_principal">
+
+      <!-- Filtros laterales -->
+      <aside class="barra_lateral">
+
+        <!-- Categorías -->
+        <div class="bloque_filtro">
+          <h3 class="titulo_filtro">Categories <span class="flecha">&#9652;</span></h3>
+          <ul class="lista_categorias">
+            <li>Lifestyle <span>60</span></li>
+            <li>Running <span>42</span></li>
+            <li>Basketball <span>18</span></li>
+            <li>Football <span>21</span></li>
+            <li>Soccer <span>30</span></li>
+            <li>Tennis <span>54</span></li>
+          </ul>
+        </div>
+
+        <!-- Precios -->
+        <div class="bloque_filtro">
+          <h3 class="titulo_filtro">Price <span class="flecha">&#9652;</span></h3>
+          <div class="barra_precio"><span class="punto_precio"></span></div>
+          <div class="filtro_precios">
+            <label><input type="checkbox"> Under $50</label>
+            <label><input type="checkbox"> $50 to $100</label>
+            <label><input type="checkbox" checked> $100 to $150</label>
+            <label><input type="checkbox"> $150 to $200</label>
+            <label><input type="checkbox"> $200 to $250</label>
+            <label><input type="checkbox"> Over $300</label>
+          </div>
+        </div>
+
+        <!-- Colores -->
+        <div class="bloque_filtro">
+          <h3 class="titulo_filtro">Colors <span class="flecha">&#9652;</span></h3>
+          <div class="filtro_colores">
+            <span style="background:#e74c3c"></span>
+            <span style="background:#e67e22"></span>
+            <span style="background:#f1c40f"></span>
+            <span style="background:#2ecc71"></span>
+            <span style="background:#1abc9c"></span>
+            <span style="background:#3498db"></span>
+            <span style="background:#9b59b6"></span>
+            <span style="background:#e84393"></span>
+            <span style="background:#2c3e50"></span>
+            <span style="background:#bdc3c7"></span>
+          </div>
+        </div>
+
+        <!-- Tallas -->
+        <div class="bloque_filtro">
+          <h3 class="titulo_filtro">Size <span class="flecha">&#9652;</span></h3>
+          <div class="filtro_tallas">
+            <span>4</span><span>4.5</span><span>5</span><span>5.5</span><span>6</span>
+            <span>6.5</span><span>7</span><span>7.5</span><span>8</span><span>8.5</span>
+            <span class="talla_activa">9</span><span>9.5</span><span>10</span><span>10.5</span><span>11</span>
+            <span>11.5</span><span>12</span><span>12.5</span><span>13</span><span>13.5</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Catálogo de productos -->
+      <section class="cuadrilla_zapatos">
+
+        <!-- Fila 1 -->
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#e3ebd9; --tono:#2b2b2b">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Zapatillas Nike Air Max</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$180</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#d6e9f2; --tono:#28b9d6">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Nike Air Force 1</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$160</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#e6ddef; --tono:#6a4fb3">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Nike Dunk</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$210</span>
+          </div>
+        </article>
+
+        <!-- Fila 2 -->
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#efe6d4; --tono:#c98a3c">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Guayos Nike Mercurial</h4>
+            <span class="categoria">Football</span>
+            <span class="precio">$180</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#e7e7e7; --tono:#333333">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Guayos Nike Phantom</h4>
+            <span class="categoria">Football</span>
+            <span class="precio">$190</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#f5dfe2; --tono:#d24b6a">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Guayos Nike Tiempo</h4>
+            <span class="categoria">Football</span>
+            <span class="precio">$180</span>
+          </div>
+        </article>
+
+        <!-- Fila 3 -->
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#dfe7d6; --tono:#8a9a7b">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Nike Revolution</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$180</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#f3ead0; --tono:#d8a93f">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Nike Pegasus</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$180</span>
+          </div>
+        </article>
+
+        <article class="tarjeta_zapato">
+          <div class="imagen_zapato" style="background:#f6dada; --tono:#e0433f">
+            <span class="icono_tarjeta">&#43;</span>
+            <svg viewBox="0 0 160 90"><use href="#zapatilla"/></svg>
+          </div>
+          <div class="informacion_zapato">
+            <h4>Nike Vapor</h4>
+            <span class="categoria">Men's Shoe</span>
+            <span class="precio">$200</span>
+          </div>
+        </article>
+
+      </section>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="pie_pagina">
+      <div class="enlaces_pie">
+        <div class="columna_pie">
+          <h5>About</h5>
+          <a href="#">Services</a>
+          <a href="#">Reviews</a>
+        </div>
+        <div class="columna_pie">
+          <h5>Customer Service</h5>
+          <a href="#">Contact Us</a>
+          <a href="#">Store Policies</a>
+        </div>
+        <div class="columna_pie">
+          <h5>Shipping Rates</h5>
+          <a href="#">Returns &amp; Exchanges</a>
+        </div>
+        <div class="informacion_empresa">
+          <h5>Constructor</h5>
+          <p>12 Water St. Vancouver, BC<br>V6B 1A2 United States</p>
+        </div>
+      </div>
+      <div class="barra_inferior">
+        <span>2020 Constructo. All Rights Reserved</span>
+        <div class="enlaces_legales">
+          <a href="#">Terms &amp; Condition</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Email</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Dibujo reutilizable de la zapatilla (SVG) -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <g id="zapatilla">
+      <path d="M6 66 L150 66 Q156 66 154 72 L150 76 Q146 78 140 78 L18 78 Q8 78 6 72 Z" fill="#ffffff" stroke="#1f1f1f" stroke-width="2"/>
+      <path d="M14 66 Q14 40 40 34 L70 28 Q90 24 102 36 L128 56 Q140 60 146 66 Z" fill="var(--tono)" stroke="#1f1f1f" stroke-width="2"/>
+      <path d="M44 60 Q74 46 124 52 Q92 54 46 64 Z" fill="#ffffff"/>
+      <g stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+        <line x1="60" y1="36" x2="74" y2="40"/>
+        <line x1="64" y1="32" x2="82" y2="38"/>
+        <line x1="70" y1="30" x2="90" y2="38"/>
+      </g>
+    </g>
+  </svg>
+
+</body>
+</html>
