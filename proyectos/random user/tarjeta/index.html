@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Tarjeta de usuario</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #d6dbc8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #caja {
+            width: 500px;
+            max-width: 100%;
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #dcdfe6;
+            box-shadow: 0 4px 15px #0002;
+        }
+
+        #avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #c2db5d;
+            margin-bottom: 15px;
+        }
+
+        #saludo {
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        #nombre {
+            font-size: 24px;
+            color: #1f2937;
+            min-height: 40px;
+            margin-bottom: 25px;
+            word-break: break-word;
+        }
+
+        #iconos {
+            border-top: 2px solid #b6e207;
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .icono {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .icono:hover,
+        .activo {
+            color: #f0f182;
+            background: #e0e7ff;
+        }
+
+        #maps {
+            display: none;
+            color: #5cc9a4;
+            font-size: 13px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        #volver {
+            margin-top: 25px;
+            padding: 10px 20px;
+            border: 0;
+            border-radius: 8px;
+            background: #e0e7ff;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        #error {
+            display: none;
+            color: #dc2626;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="caja">
+
+        <div id="error">
+            No se ha seleccionado ningún usuario.
+        </div>
+
+        <img id="avatar">
+
+        <p id="saludo">Hola, mi nombre es</p>
+
+        <h1 id="nombre">Cargando...</h1>
+
+        <div id="maps">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Haz clic para abrir Google Maps
+        </div>
+
+        <div id="iconos">
+
+            <div class="icono activo" id="usuario">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="icono" id="email">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="icono" id="celular">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+
+            <div class="icono" id="direccion">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="icono" id="edad">
+                <i class="fa-solid fa-cake-candles"></i>
+            </div>
+
+            <div class="icono" id="seguridad">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+        </div>
+
+        <button id="volver">
+            <i class="fa-solid fa-arrow-left"></i>
+            Volver a usuarios
+        </button>
+
+    </div>
+
+    <script>
+
+        const guardado = localStorage.getItem("usuarioSeleccionado");
+
+        if (!guardado) {
+
+            document.getElementById("error").style.display = "block";
+
+        } else {
+
+            const u = JSON.parse(guardado);
+
+            const avatar = document.getElementById("avatar");
+            const saludo = document.getElementById("saludo");
+            const nombre = document.getElementById("nombre");
+            const maps = document.getElementById("maps");
+            const iconos = document.querySelectorAll(".icono");
+
+            avatar.src = u.picture.large;
+
+            nombre.textContent = `${u.name.first} ${u.name.last}`;
+
+            const direccion =
+                `${u.location.street.name} ${u.location.street.number}, ${u.location.city}, ${u.location.country}`;
+
+            function mostrar(icono, texto, dato) {
+
+                iconos.forEach(i => i.classList.remove("activo"));
+
+                icono.classList.add("activo");
+
+                saludo.textContent = texto;
+                nombre.textContent = dato;
+
+                nombre.classList.remove("link");
+
+                maps.style.display = "none";
+
+            }
+
+            function abrirMaps() {
+
+                window.open(
+                    "https://www.google.com/maps/search/?api=1&query=" +
+                    encodeURIComponent(direccion),
+                    "_blank"
+                );
+
+            }
+
+            document.getElementById("usuario").onmouseover = () => {
+                mostrar(
+                    usuario,
+                    "Hola, mi nombre es",
+                    `${u.name.first} ${u.name.last}`
+                );
+            };
+
+            document.getElementById("email").onmouseover = () => {
+                mostrar(
+                    email,
+                    "Mi correo es",
+                    u.email
+                );
+            };
+
+            document.getElementById("celular").onmouseover = () => {
+                mostrar(
+                    celular,
+                    "Mi celular es",
+                    u.cell
+                );
+            };
+
+            document.getElementById("direccion").onmouseover = () => {
+
+                mostrar(
+                    document.getElementById("direccion"),
+                    "Mi dirección es",
+                    direccion
+                );
+
+
+                maps.style.display = "block";
+                nombre.style.textDecoration = "underline";
+                nombre.style.cursor = "pointer";
+                nombre.onclick = abrirMaps;
+
+            };
+
+            document.getElementById("direccion").onclick = abrirMaps;
+
+            document.getElementById("edad").onmouseover = () => {
+                mostrar(
+                    edad,
+                    "Mi edad es",
+                    `${u.dob.age} años`
+                );
+            };
+
+            document.getElementById("seguridad").onmouseover = () => {
+                mostrar(
+                    seguridad,
+                    "Mi contraseña es",
+                    u.login.password
+                );
+            };
+
+        }
+
+        document.getElementById("volver").onclick = () => {
+            location.href = "../index.html";
+        };
+
+    </script>
+
+</body>
+
+</html>

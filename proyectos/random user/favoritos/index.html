@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis Favoritos</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background-color: #d6dbc8;
+
+            min-height: 100vh;
+
+            padding: 30px 25px;
+
+        }
+
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        .encabezado {
+
+            max-width: 1600px;
+
+            margin: 0 auto 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        h1 {
+
+            color: #1f2937;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .descripcion {
+
+            color: #6b7280;
+
+        }
+
+
+        /* =========================
+           BOTÓN VOLVER
+        ========================= */
+
+        #volver {
+
+            border: none;
+
+            background-color: white;
+
+            color: #374151;
+
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 1rem;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, .1);
+
+            transition: .2s;
+
+        }
+
+
+        #volver:hover {
+
+            background-color: #e0e7ff;
+
+        }
+
+
+        /* =========================
+           CONTENEDOR
+        ========================= */
+
+        #contenedor {
+
+            max-width: 1600px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        /* =========================
+           TARJETA
+        ========================= */
+
+        .tarjeta {
+
+            position: relative;
+
+            background: white;
+
+            border:
+                2px solid #dcdfe6;
+
+            border-radius: 15px;
+
+            padding: 22px 15px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, .1);
+
+            transition: .25s;
+
+        }
+
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            border-color: #b6e207;
+        }
+
+
+        .avatar {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #c2db5d;
+            margin-bottom: 14px;
+
+        }
+
+
+        .nombre {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+
+        .dato {
+
+            color: #6b7280;
+            font-size: .82rem;
+            margin-bottom: 6px;
+            word-break: break-word;
+        }
+
+        .quitar {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #fff7ed;
+            color: #facc15;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+
+        .quitar:hover {
+            color: #ef4444;
+            background: #fee2e2;
+        }
+
+
+        #vacio {
+            max-width: 600px;
+            margin: 80px auto;
+            text-align: center;
+            color: #6b7280;
+        }
+
+
+        #vacio i {
+            font-size: 4rem;
+            color: #facc15;
+            margin-bottom: 20px;
+        }
+
+
+        #vacio h2 {
+            color: #374151;
+            margin-bottom: 10px;
+        }
+
+
+        @media (max-width: 1300px) {
+
+            #contenedor {
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1000px) {
+
+            #contenedor {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .encabezado {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            #contenedor {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            #contenedor {
+
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="encabezado">
+
+        <div>
+
+            <h1>
+
+                <i class="fa-solid fa-star" style="color:#facc15;">
+                </i>
+
+                Mis Favoritos
+
+            </h1>
+
+            <p class="descripcion">
+                Usuarios que has guardado como favoritos
+            </p>
+
+        </div>
+
+
+        <button id="volver">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver a usuarios
+
+        </button>
+
+    </div>
+
+
+    <div id="contenedor"></div>
+
+
+    <div id="vacio" style="display:none;">
+
+        <i class="fa-solid fa-star"></i>
+
+        <h2>
+            No tienes favoritos todavía
+        </h2>
+
+        <p>
+            Ve a la lista de usuarios y presiona
+            la estrella ⭐ de las personas que quieras guardar.
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const contenedor =
+            document.getElementById(
+                "contenedor"
+            );
+        const vacio =
+            document.getElementById(
+                "vacio"
+            );
+
+        function obtenerFavoritos() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "favoritos"
+                )
+            ) || [];
+
+        }
+
+        function guardarFavoritos(
+            favoritos
+        ) {
+            localStorage.setItem(
+                "favoritos",
+                JSON.stringify(
+                    favoritos
+                )
+            );
+        }
+
+
+        function mostrarFavoritos() {
+
+            const favoritos =
+                obtenerFavoritos();
+
+            contenedor.innerHTML = "";
+
+
+            if (favoritos.length === 0) {
+                vacio.style.display =
+                    "block";
+                return;
+            }
+            vacio.style.display =
+                "none";
+            favoritos.forEach(
+                usuario => {
+
+                    const tarjeta =
+                        document.createElement(
+                            "div"
+                        );
+                    tarjeta.className =
+                        "tarjeta";
+                    tarjeta.innerHTML = `
+
+                    <button
+                        class="quitar"
+                        title="Quitar de favoritos"
+                    >
+
+                        <i class="fa-solid fa-star"></i>
+
+                    </button>
+                    <img
+                        class="avatar"
+                        src="${usuario.picture.large}"
+                        alt="Foto de ${usuario.name.first}"
+                    >
+                    <h2 class="nombre">
+
+                        ${usuario.name.first}
+                        ${usuario.name.last}
+
+                    </h2>
+                    <p class="dato">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        ${usuario.email}
+
+                    </p>
+                    <p class="dato">
+
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+
+                        ${usuario.cell}
+
+                    </p>
+                    <p class="dato">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        ${usuario.location.city},
+                        ${usuario.location.country}
+
+                    </p>
+                `;
+                    tarjeta
+                        .querySelector(".quitar")
+                        .addEventListener(
+                            "click",
+                            (evento) => {
+
+                                evento.stopPropagation();
+
+
+                                const nuevosFavoritos =
+                                    obtenerFavoritos().filter(
+                                        favorito =>
+                                            favorito.login.uuid !==
+                                            usuario.login.uuid
+                                    );
+
+
+                                localStorage.setItem(
+                                    "favoritos",
+                                    JSON.stringify(nuevosFavoritos)
+                                );
+
+
+                                mostrarFavoritos();
+
+
+                            }
+                        );
+
+
+                    tarjeta.addEventListener(
+                        "click",
+                        () => {
+
+                            localStorage.setItem(
+                                "usuarioSeleccionado",
+                                JSON.stringify(
+                                    usuario
+                                )
+                            );
+
+                            window.location.href =
+                                "../tarjeta/index.html";
+
+                        }
+                    );
+
+                    contenedor.appendChild(
+                        tarjeta
+                    );
+
+                });
+
+        }
+
+        document
+            .getElementById("volver")
+            .addEventListener(
+                "click",
+                () => {
+
+                    window.location.href =
+                        "../usuarios/index.html";
+
+                }
+            );
+
+        mostrarFavoritos();
+
+    </script>
+
+</body>
+
+</html>

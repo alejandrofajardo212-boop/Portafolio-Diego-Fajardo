@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Usuarios</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #d6dbc8;
+            padding: 30px 25px;
+        }
+
+        header {
+            max-width: 1600px;
+            margin: auto auto 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 5px
+        }
+
+        p {
+            color: #6b7280
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+        }
+
+        #btn-favoritos {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px #0002;
+        }
+
+        #contador {
+            background: #ef4444;
+            color: white;
+            border-radius: 20px;
+            padding: 4px 8px;
+            margin-left: 5px;
+        }
+
+        #cargando {
+            text-align: center;
+            font-size: 18px;
+            margin: 50px;
+        }
+
+        #contenedor {
+            max-width: 1600px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 22px;
+        }
+
+        .tarjeta {
+            position: relative;
+            background: white;
+            border: 2px solid #dcdfe6;
+            border-radius: 15px;
+            padding: 22px 15px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px #0002;
+            transition: .2s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            border-color: #b6e207;
+        }
+
+        .avatar {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #c2db5d;
+            margin-bottom: 12px;
+        }
+
+        .nombre {
+            color: #1f2937;
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .dato {
+            font-size: 14px;
+            margin: 7px;
+        }
+
+        .dato i {
+            width: 20px;
+            color: #8b9d3a;
+        }
+
+        .favorito {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #9ca3af;
+            font-size: 18px;
+        }
+
+        .favorito.activo {
+            color: #facc15;
+            background: #fff7ed;
+        }
+
+        @media(max-width:1300px) {
+            #contenedor {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+
+        @media(max-width:1000px) {
+            #contenedor {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media(max-width:700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center
+            }
+
+            #contenedor {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:480px) {
+            #contenedor {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1>Lista de Usuarios</h1>
+            <p>Selecciona una persona para ver su información</p>
+        </div>
+
+        <button id="btn-favoritos">
+            <i class="fa-solid fa-star"></i>
+            Favoritos <span id="contador">0</span>
+        </button>
+    </header>
+
+    <div id="cargando">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Cargando usuarios...
+    </div>
+
+    <div id="contenedor"></div>
+
+    <script>
+
+        const contenedor = document.getElementById("contenedor");
+        const cargando = document.getElementById("cargando");
+        const contador = document.getElementById("contador");
+
+        const favoritos = () => JSON.parse(localStorage.getItem("favoritos")) || [];
+
+        function esFavorito(u) {
+            return favoritos().some(f => f.login.uuid === u.login.uuid);
+        }
+
+        function actualizar() {
+            contador.textContent = favoritos().length;
+
+            document.querySelectorAll(".tarjeta").forEach(t => {
+                let boton = t.querySelector(".favorito");
+                boton.classList.toggle(
+                    "activo",
+                    favoritos().some(f => f.login.uuid === t.dataset.id)
+                );
+            });
+        }
+
+        function cambiarFavorito(u) {
+
+            let lista = favoritos();
+
+            if (esFavorito(u))
+                lista = lista.filter(f => f.login.uuid !== u.login.uuid);
+            else
+                lista.push(u);
+
+            localStorage.setItem("favoritos", JSON.stringify(lista));
+            actualizar();
+        }
+
+        function mostrar(usuarios) {
+
+            contenedor.innerHTML = "";
+
+            usuarios.forEach(u => {
+
+                let tarjeta = document.createElement("div");
+                tarjeta.className = "tarjeta";
+                tarjeta.dataset.id = u.login.uuid;
+
+                tarjeta.innerHTML = `
+<button class="favorito ${esFavorito(u) ? "activo" : ""}">
+<i class="fa-solid fa-star"></i>
+</button>
+
+<img class="avatar" src="${u.picture.large}">
+
+<h2 class="nombre">
+${u.name.first} ${u.name.last}
+</h2>
+
+<p class="dato">
+<i class="fa-solid fa-venus-mars"></i>
+Género: ${u.gender}
+</p>
+
+<p class="dato">
+<i class="fa-solid fa-cake-candles"></i>
+Edad: ${u.dob.age} años
+</p>
+`;
+
+                tarjeta.querySelector(".favorito").onclick = e => {
+                    e.stopPropagation();
+                    cambiarFavorito(u);
+                };
+
+                tarjeta.onclick = () => {
+                    localStorage.setItem(
+                        "usuarioSeleccionado",
+                        JSON.stringify(u)
+                    );
+                    location.href = "../tarjeta/index.html";
+                };
+
+                contenedor.appendChild(tarjeta);
+
+            });
+        }
+
+        async function cargar() {
+
+            try {
+
+                const r = await axios.get(
+                    "https://randomuser.me/api/?results=100"
+                );
+
+                const usuarios = r.data.results;
+
+                cargando.style.display = "none";
+
+                mostrar(usuarios);
+                actualizar();
+
+            } catch (error) {
+
+                cargando.textContent =
+                    "No se pudieron cargar los usuarios.";
+
+            }
+        }
+
+
+        document.getElementById("btn-favoritos").onclick = () => {
+            location.href = "../favoritos/index.html";
+        };
+
+        window.addEventListener("pageshow", actualizar);
+
+        cargar();
+
+    </script>
+
+</body>
+
+</html>
