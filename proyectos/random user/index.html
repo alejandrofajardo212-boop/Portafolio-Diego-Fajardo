@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Usuarios</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 
     <style>
@@ -266,7 +264,7 @@ Edad: ${u.dob.age} años
                         "usuarioSeleccionado",
                         JSON.stringify(u)
                     );
-                    location.href = "../tarjeta/index.html";
+                    location.href = "./tarjeta/index.html";
                 };
 
                 contenedor.appendChild(tarjeta);
@@ -299,7 +297,7 @@ Edad: ${u.dob.age} años
 
 
         document.getElementById("btn-favoritos").onclick = () => {
-            location.href = "../favoritos/index.html";
+            location.href = "./favoritos/index.html";
         };
 
         window.addEventListener("pageshow", actualizar);
